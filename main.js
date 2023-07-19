@@ -244,7 +244,79 @@ const pets = [
   const targetingApp = document.querySelector("#app");
 
   let domString = "";
+  
 
+   for (let pet of pets) {
+     domString += `<div class="card" style="width: 18rem;">
+     <div class= "card-body">
+       <h5 class= "card-title">${pet.name}</h5>
+       <img src=${pet.imageUrl} class="card-img-top" alt= ${pet.name}>
+       <p class="card-text">${pet.color}</p>
+       <p>${pet.specialSkill}</p>
+       <p>${pet.type}</p>
+     </div>`;
+   }
+ targetingApp.innerHTML = domString;
+
+const dogBtn = document.getElementById("dog");
+dogBtn.addEventListener("click" , function(){
+  domString ="";
+  for (let pet of pets) {
+    if (pet.type == "dog"){
+    domString += `<div class="card" style="width: 18rem;">
+    <div class= "card-body">
+      <h5 class= "card-title">${pet.name}</h5>
+      <img src=${pet.imageUrl} class="card-img-top" alt= ${pet.name}>
+      <p class="card-text">${pet.color}</p>
+      <p>${pet.specialSkill}</p>
+      <p>${pet.type}</p>
+    </div>`;
+    }
+  }
+  targetingApp.innerHTML = domString;
+  
+});
+
+const catBtn = document.getElementById("cat");
+catBtn.addEventListener("click" , function(){
+  domString = "";
+  for (let pet of pets) {
+    if (pet.type == "cat"){
+    domString += `<div class="card" style="width: 18rem;">
+    <div class= "card-body">
+      <h5 class= "card-title">${pet.name}</h5>
+      <img src=${pet.imageUrl} class="card-img-top" alt= ${pet.name}>
+      <p class="card-text">${pet.color}</p>
+      <p>${pet.specialSkill}</p>
+      <p>${pet.type}</p>
+    </div>`;
+    }
+  }
+  targetingApp.innerHTML = domString;
+});
+
+const dinoBtn = document.getElementById("dino");
+dinoBtn.addEventListener("click" , function(){
+  domString = "";
+  for (let pet of pets) {
+    if (pet.type == "dino"){
+    domString += `<div class="card" style="width: 18rem;">
+    <div class= "card-body">
+      <h5 class= "card-title">${pet.name}</h5>
+      <img src=${pet.imageUrl} class="card-img-top" alt= ${pet.name}>
+      <p class="card-text">${pet.color}</p>
+      <p>${pet.specialSkill}</p>
+      <p>${pet.type}</p>
+    </div>`;
+    }
+  }
+  targetingApp.innerHTML = domString;
+});
+
+
+const allBtn = document.getElementById("all");
+allBtn.addEventListener("click" , function(){
+  domString = "";
   for (let pet of pets) {
     domString += `<div class="card" style="width: 18rem;">
     <div class= "card-body">
@@ -256,3 +328,4 @@ const pets = [
     </div>`;
   }
 targetingApp.innerHTML = domString;
+})
