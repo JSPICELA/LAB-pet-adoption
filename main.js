@@ -329,3 +329,54 @@ allBtn.addEventListener("click" , function(){
   }
 targetingApp.innerHTML = domString;
 })
+
+// Render to DOM utility function
+const renderToDom = (divId, htmlToRender) => {
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = htmlToRender;
+}
+
+
+// get cards on the DOM 
+const cardsOnDom = (array) => {
+  let domString = "";
+  for (const member of array) {
+    domString += `<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">${member.name}</p>
+      <img src="${member.imageUrl}" class="card-img-top" alt="animal photo">
+      <p>${member.color}</p>
+      <p>${member.specialSkill}</p>
+      <p>${member.type}</p>
+    </div>
+  </div>`;
+  }
+  renderToDom("#app", domString);
+}
+
+//create
+const form = document.querySelector("#pet-add-form");
+
+const createPet = (e) => {
+  e.preventDefault();
+
+  const newPetObj = {
+    id: pets.length + 1,
+    name: document.querySelector("#name").value,
+    color: document.querySelector("#color").value,
+    specialSkill: document.querySelector("#special-skill").value,
+    type: document.querySelector("#type").value,
+    imageUrl: document.querySelector("#image").value
+  }
+
+  pets.push(newPetObj);
+  cardsOnDom(pets);
+  form.reset();
+}
+
+form.addEventListener("submit" , createPet);
+
+
+
+
+// DELETE
