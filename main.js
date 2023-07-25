@@ -436,6 +436,7 @@ const cardsOnDom = (array) => {
       <p>${member.color}</p>
       <p>${member.specialSkill}</p>
       <p>${member.type}</p>
+      <button type="button" class="btn btn-danger" id="delete--${member.id}">Delete</button>
     </div>
   </div>`;
   }
@@ -447,22 +448,21 @@ const app = document.querySelector("#app");
 
 // 2. Add an event listener to capture clicks
 
-app.addEventListener('click', (e) => {
+app.addEventListener("click", (e) => {
   // console.log(e.target.id);
-  
-// 3. check e.target.id includes "delete"
+
+  // 3. check e.target.id includes "delete"
   if (e.target.id.includes("delete")) {
-    
     const [, id] = e.target.id.split("--");
 
-// 4. add logic to remove from array
+    // 4. add logic to remove from array
     // .findIndex is an array method
-    const index = pets.findIndex(e => e.id === Number(id));
+    const index = pets.findIndex((e) => e.id === Number(id));
 
     // .splice modifies the original array
     pets.splice(index, 1);
 
-// 5. Repaint the DOM with the updated array
+    // 5. Repaint the DOM with the updated array
     cardsOnDom(pets);
   }
 });
@@ -470,7 +470,6 @@ app.addEventListener('click', (e) => {
 const startApp = () => {
   cardsOnDom(pets);
   // events(); // ALWAYS LAST
-}
-
+};
 
 startApp();
